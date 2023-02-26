@@ -1,7 +1,7 @@
-import PyPDF2
+from PyPDF2 import PdfWriter
 import os
 
-merger = PyPDF2.PdfFileMerger()
+merger = PdfWriter()
 
 for file in os.listdir(os.curdir):
     if file.endswith(".pdf"):
