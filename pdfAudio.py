@@ -1,0 +1,14 @@
+import pyttsx3, PyPDF2
+
+pdfReader = PyPDF2.PdfFileReader(open('YourPDF.pdf', 'rb'))
+speaker = pyttsx3.init()
+
+for page_num in range(pdfReader.numPages):
+    text = pdfReader.getPage(page_num).extract_text()
+    clean_text = text.strip().replace('\n', ' ')
+    print(clean_text)
+
+speaker.save_to_file(clean_text, 'audio.mp3')
+speaker.runAndWait()
+
+speaker.stop()
